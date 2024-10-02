@@ -1,26 +1,23 @@
-import unittest
-from calculadora import Calculadora
+class Calculadora:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
 
-class TestCalculadora(unittest.TestCase):
-    def test_maior_numero_iguais(self):
-        resultado = Calculadora.maiorNumero(5, 5)
-        self.assertEqual(resultado, 'Os dois números são iguais')
+    def maior_numero(self):
+        return max(self.num1, self.num2)
 
-    def test_maior_numero_primeiro_maior(self):
-        resultado = Calculadora.maiorNumero(10, 5)
-        self.assertEqual(resultado, 'O maior número é 10')
+    def soma(self):
+        return self.num1 + self.num2
 
-    def test_maior_numero_segundo_maior(self):
-        resultado = Calculadora.maiorNumero(5, 10)
-        self.assertEqual(resultado, 'O maior número é 10')
+    def diferenca(self):
+        return abs(self.num1 - self.num2)
 
-    def test_somar(self):
-        resultado = Calculadora.somar(7, 3)
-        self.assertEqual(resultado, 10)
+# Exemplo de uso
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
 
-    def test_diferenca(self):
-        resultado = Calculadora.diferenca(5, 10)
-        self.assertEqual(resultado, 5)
+calc = Calculadora(num1, num2)
 
-if __name__ == '__main__':
-    unittest.main()
+print(f"O maior número é: {calc.maior_numero()}")
+print(f"A soma dos números é: {calc.soma()}")
+print(f"A diferença entre os números é: {calc.diferenca()}")
